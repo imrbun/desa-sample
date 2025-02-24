@@ -12719,17 +12719,24 @@ header.masthead .h1 {
 
 .call-to-action {
   position: relative;
-  background-color: #343a40;
-  background: url("../images/hariraya.jpg") no-repeat center center;
-  background-size: cover;
-  padding-top: 7rem;
-  padding-bottom: 7rem;
+  width: 100vw;
+  /* Full width of the viewport */
+  height: 100vh;
+  /* Full height of the viewport */
+  background: url("../images/video.png") no-repeat center center;
+  background-size: contain;
+  /* Ensures the entire image is visible without cropping */
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
 
 .call-to-action:before {
   content: "";
   position: absolute;
-  background-color: #1c375e;
   height: 100%;
   width: 100%;
   top: 0;
@@ -12737,14 +12744,6 @@ header.masthead .h1 {
   opacity: 0.5;
 }
 
-
-.video-container {
-  position: relative;
-  width: 100%;
-  /* Full width of the column */
-  padding-top: 56.25%;
-  /* 16:9 Aspect Ratio (Height = 56.25% of Width) */
-}
 
 .video-container iframe {
   position: absolute;
@@ -12772,6 +12771,11 @@ header.masthead .h1 {
 /* Fade from top */
 .fade-top {
   transform: translateY(-250px);
+  /* Starts 50px above */
+}
+
+.fade-bottom {
+  transform: translateY(250px);
   /* Starts 50px above */
 }
 
@@ -12808,6 +12812,28 @@ header.masthead .h1 {
   /* Make sure the first image fills the container */
   height: auto;
   display: block;
+}
+
+.video-container {
+  padding-bottom: 39%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  background: #000;
+  position: absolute;
+  top: 50%;
+  left: 49.75%;
+  transform: translate(-50%, -50%);
+  width: 74.2%;
+  height: 10vw;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .overlay-image {
@@ -12907,6 +12933,7 @@ header.masthead .h1 {
 }
 
 .floating-whatsapp {
+  margin-left: 10px;
   position: fixed;
   bottom: 20px;
   right: 20px;
@@ -12918,26 +12945,27 @@ header.masthead .h1 {
 }
 
 .whatsapp-bubble {
-  background: #25D366;
+  background: #2aa81a;
   color: white;
   font-size: 14px;
   padding: 10px 15px;
   border-radius: 20px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
-  animation: fadeIn 0.5s ease-in-out;
+
 }
 
 .whatsapp-icon {
   width: 70px;
   height: 70px;
-  border-radius: 150%;
+  border-radius: 100%;
+  object-fit: cover;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
-  transition: transform 0.2s ease-in-out;
 }
 
-.whatsapp-icon:hover {
+
+/* .whatsapp-icon:hover {
   transform: scale(1.2);
-}
+} */
 
 /* Animation */
 @keyframes fadeIn {
@@ -12949,5 +12977,13 @@ header.masthead .h1 {
   to {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+@media (max-width: 768px) {
+
+  /* Apply only on mobile screens */
+  .footer {
+    padding-bottom: 85px;
   }
 }
