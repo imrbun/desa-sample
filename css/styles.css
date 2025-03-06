@@ -12822,6 +12822,16 @@ header.masthead .h1 {
   display: block;
 }
 
+.text-container {
+  position: absolute;
+  top: 8%;
+  left: 50%;
+  /* Move to center */
+  transform: translateX(-50%);
+  /* Adjust back by 50% of its own width */
+}
+
+
 .video-container {
   padding-bottom: 39%;
   height: 0;
@@ -13007,10 +13017,55 @@ header.masthead .h1 {
   }
 }
 
+.mobile-only {
+  display: none !important;
+}
+
+.desktop-only {
+  display: block !important;
+}
+
 @media (max-width: 768px) {
 
-  /* Apply only on mobile screens */
+  .mobile-only {
+    display: flex !important;
+  }
+
+  .desktop-only {
+    display: none !important;
+  }
+
   .footer {
     padding-bottom: 85px;
+  }
+}
+
+
+
+.padding-video {
+  padding: 10rem !important;
+}
+
+.responsive-video {
+  background-color: #000;
+  width: 100%;
+  max-width: 100%;
+  max-height: 1000px;
+
+  /* Default: fit width on larger screens */
+}
+
+@media (max-width: 768px) {
+
+  /* For mobile screens */
+  .responsive-video {
+    height: 100%;
+    max-width: 250px;
+    padding: 0;
+    /* Limit width to 250px on mobile */
+  }
+
+  .padding-video {
+    padding: 1.5rem !important;
   }
 }
